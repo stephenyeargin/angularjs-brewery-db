@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MyApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Blog Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- AngularJS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="assets/js/app.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container" ng-controller="AppController as app" ng-show="'app.beer'">
+
+      <div class="header">
+        <h1>{{app.beer.name}} <small ng-show="app.beer.style">{{app.beer.style.name}}</small> <span ng-show="app.beer.status === 'verified'" class="badge badge-primary">{{app.beer.statusDisplay}}</span></h1>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well" ng-show="app.beer.description || app.beer.abv || app.beer.available">
+            <p ng-show="app.beer.description">{{app.beer.description}}</p>
+            <p ng-show="app.beer.abv">{{app.beer.abv}}% ABV</p>
+            <p ng-show="app.beer.available"><strong>Available:</strong> {{app.beer.available.name}} - {{app.beer.available.description}}</p>
+          </div>
+        </div>          
+        <div class="col-sm-3 col-sm-offset-1 sidebar">
+          <div ng-show="app.beer.labels">
+            <a href="{{app.beer.labels.large}}" target="_blank" class="thumbnail-responsive">
+              <img ng-src="{{app.beer.labels.medium}}">
+            </a>
+          </div>
+        </div><!-- /.sidebar -->
+
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
